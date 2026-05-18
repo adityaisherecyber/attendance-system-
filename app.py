@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from database import db
 
@@ -13,9 +13,7 @@ attendance = db.attendance
 @app.route('/')
 def home():
 
-    return jsonify({
-        "message": "Attendance Server Running"
-    })
+    return send_from_directory('.', 'index.html')
 
 
 @app.route('/add_student', methods=['POST'])
@@ -83,4 +81,5 @@ def get_attendance():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+
+    app.run()
