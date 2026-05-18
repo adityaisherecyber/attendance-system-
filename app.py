@@ -2,34 +2,34 @@ from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from database import db
 
-app = Flask(__name__, static_folder='.', static_url_path='')
+app = Flask(__name__)
 CORS(app)
 
 students = db.students
 attendance = db.attendance
 
 
-# FRONTEND ROUTE
 @app.route('/')
 def home():
+
     return send_from_directory('.', 'index.html')
 
 
-# CSS
 @app.route('/style.css')
 def serve_css():
+
     return send_from_directory('.', 'style.css')
 
 
-# JS
 @app.route('/script.js')
 def serve_js():
+
     return send_from_directory('.', 'script.js')
 
 
-# IMAGE
 @app.route('/backgroundimgschool.png')
 def serve_image():
+
     return send_from_directory('.', 'backgroundimgschool.png')
 
 
