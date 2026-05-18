@@ -1,3 +1,7 @@
+const BASE_URL =
+'https://attendance-system-pied-sigma.vercel.app';
+
+
 async function addStudent() {
 
     const name =
@@ -10,7 +14,7 @@ async function addStudent() {
         document.getElementById('class').value;
 
     const response = await fetch(
-        'https://attendance-system-pied-sigma.vercel.app/',
+        `${BASE_URL}/add_student`,
         {
             method: 'POST',
 
@@ -52,7 +56,7 @@ async function markAttendance() {
         document.getElementById('status').value;
 
     const response = await fetch(
-        'http://127.0.0.1:5000/mark_attendance',
+        `${BASE_URL}/mark_attendance`,
         {
             method: 'POST',
 
@@ -84,7 +88,7 @@ async function markAttendance() {
 async function loadStudents() {
 
     const response = await fetch(
-        'https://attendance-system-pied-sigma.vercel.app/'
+        `${BASE_URL}/get_students`
     );
 
     const students = await response.json();
@@ -115,7 +119,7 @@ async function loadStudents() {
 async function loadAttendance() {
 
     const response = await fetch(
-        'http://127.0.0.1:5000/get_attendance'
+        `${BASE_URL}/get_attendance`
     );
 
     const records = await response.json();
