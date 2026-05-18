@@ -2,20 +2,38 @@ from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from database import db
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='.', static_url_path='')
 CORS(app)
 
 students = db.students
-
 attendance = db.attendance
 
 
+# FRONTEND ROUTE
 @app.route('/')
 def home():
-
     return send_from_directory('.', 'index.html')
 
 
+# CSS
+@app.route('/style.css')
+def serve_css():
+    return send_from_directory('.', 'style.css')
+
+
+# JS
+@app.route('/script.js')
+def serve_js():
+    return send_from_directory('.', 'script.js')
+
+
+# IMAGE
+@app.route('/backgroundimgschool.png')
+def serve_image():
+    return send_from_directory('.', 'backgroundimgschool.png')
+
+
+# ADD STUDENT
 @app.route('/add_student', methods=['POST'])
 def add_student():
 
@@ -24,9 +42,7 @@ def add_student():
     student = {
 
         "name": data['name'],
-
         "roll_no": data['roll_no'],
-
         "class": data['class']
     }
 
@@ -37,6 +53,7 @@ def add_student():
     })
 
 
+# MARK ATTENDANCE
 @app.route('/mark_attendance', methods=['POST'])
 def mark_attendance():
 
@@ -45,11 +62,8 @@ def mark_attendance():
     attendance_data = {
 
         "student_name": data['student_name'],
-
         "roll_no": data['roll_no'],
-
         "class": data['class'],
-
         "status": data['status']
     }
 
@@ -60,6 +74,7 @@ def mark_attendance():
     })
 
 
+# GET STUDENTS
 @app.route('/get_students', methods=['GET'])
 def get_students():
 
@@ -70,6 +85,7 @@ def get_students():
     return jsonify(student_data)
 
 
+# GET ATTENDANCE
 @app.route('/get_attendance', methods=['GET'])
 def get_attendance():
 
@@ -81,5 +97,4 @@ def get_attendance():
 
 
 if __name__ == '__main__':
-
     app.run()
