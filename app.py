@@ -9,27 +9,27 @@ students = db.students
 attendance = db.attendance
 
 
+# FRONTEND
 @app.route('/')
 def home():
-
     return send_from_directory('.', 'index.html')
 
 
+# CSS
 @app.route('/style.css')
-def serve_css():
-
+def css():
     return send_from_directory('.', 'style.css')
 
 
+# JS
 @app.route('/script.js')
-def serve_js():
-
+def js():
     return send_from_directory('.', 'script.js')
 
 
+# IMAGE
 @app.route('/backgroundimgschool.png')
-def serve_image():
-
+def image():
     return send_from_directory('.', 'backgroundimgschool.png')
 
 
@@ -40,7 +40,6 @@ def add_student():
     data = request.json
 
     student = {
-
         "name": data['name'],
         "roll_no": data['roll_no'],
         "class": data['class']
