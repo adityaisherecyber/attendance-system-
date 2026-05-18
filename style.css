@@ -3,8 +3,7 @@ body {
     margin: 0;
     padding: 0;
 
-    font-family: 'Gill Sans', 'Gill Sans MT',
-                 Calibri, 'Trebuchet MS', sans-serif;
+    font-family: Arial;
 
     background-image: url('/backgroundimgschool.png');
 
@@ -15,8 +14,6 @@ body {
     background-repeat: no-repeat;
 
     background-attachment: fixed;
-
-    min-height: 100vh;
 }
 
 .main-container {
@@ -26,8 +23,6 @@ body {
     margin: auto;
 
     text-align: center;
-
-    padding-bottom: 40px;
 }
 
 h1 {
@@ -37,8 +32,6 @@ h1 {
     color: white;
 
     text-shadow: 2px 2px 5px black;
-
-    font-size: 40px;
 }
 
 .container {
@@ -68,8 +61,6 @@ select {
     border-radius: 6px;
 
     border: 1px solid #ccc;
-
-    font-size: 15px;
 }
 
 .button-group {
@@ -98,22 +89,16 @@ button {
     background: #333;
 
     color: white;
-
-    transition: 0.3s;
 }
 
 button:hover {
 
     opacity: 0.9;
-
-    transform: scale(1.03);
 }
 
 .table-container {
 
     margin-top: 40px;
-
-    overflow-x: auto;
 }
 
 table {
@@ -122,13 +107,9 @@ table {
 
     border-collapse: collapse;
 
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.9);
 
     box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
-
-    border-radius: 10px;
-
-    overflow: hidden;
 }
 
 th,
@@ -137,8 +118,6 @@ td {
     padding: 15px;
 
     border: 1px solid #ddd;
-
-    text-align: center;
 }
 
 th {
@@ -146,9 +125,4 @@ th {
     background: #333;
 
     color: white;
-}
-
-tr:hover {
-
-    background: rgba(0,0,0,0.05);
 }
