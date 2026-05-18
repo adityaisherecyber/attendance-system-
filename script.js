@@ -10,7 +10,7 @@ async function addStudent() {
         document.getElementById('class').value;
 
     const response = await fetch(
-        'http://127.0.0.1:5000/add_student',
+        'https://attendance-system-pied-sigma.vercel.app/',
         {
             method: 'POST',
 
@@ -84,7 +84,7 @@ async function markAttendance() {
 async function loadStudents() {
 
     const response = await fetch(
-        'http://127.0.0.1:5000/get_students'
+        'https://attendance-system-pied-sigma.vercel.app/'
     );
 
     const students = await response.json();
